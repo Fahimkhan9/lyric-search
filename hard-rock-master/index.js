@@ -30,36 +30,24 @@ var title9 = document.querySelector("#title9");
 var title10 = document.querySelector("#title10");
 //selecting get_lyrics button
 var get_lyrics_data1 = document.querySelector(".get-lyrics-btn1");
-
 var get_lyrics_data2 = document.querySelector(".get-lyrics-btn2");
-
 var get_lyrics_data3 = document.querySelector(".get-lyrics-btn3");
-
 var get_lyrics_data4 = document.querySelector(".get-lyrics-btn4");
-
 var get_lyrics_data5 = document.querySelector(".get-lyrics-btn5");
-
 var get_lyrics_data6 = document.querySelector(".get-lyrics-btn6");
-
 var get_lyrics_data7 = document.querySelector(".get-lyrics-btn7");
-
 var get_lyrics_data8 = document.querySelector(".get-lyrics-btn8");
-
 var get_lyrics_data9 = document.querySelector(".get-lyrics-btn9");
-
 var get_lyrics_data10 = document.querySelector(".get-lyrics-btn10");
 
 //selecting lyric output heading
 var heading = document.querySelector(".heading");
-
-
-
-
+//hiding all of the output
 output.style.display = "none";
 lyric.style.display = "none";
 heading.style.display = "none";
+//add event listener to search button
 searchBtn.addEventListener("click", () => {
-  
   fetch(`https://api.lyrics.ovh/suggest/${searchInput.value}`)
     .then((res) => res.json())
     .then((info) => {
@@ -84,153 +72,140 @@ searchBtn.addEventListener("click", () => {
       title8.innerHTML = info.data[7].album.title;
       title9.innerHTML = info.data[8].album.title;
       title10.innerHTML = info.data[9].album.title;
-
-
-
+//showing all of the output when the api call is received
       output.style.display = "block";
       lyric.style.display = "block";
       heading.style.display = "block";
     });
 });
-
-
+//add event listenet to all of the get-lyrics button
 get_lyrics_data1.addEventListener("click", () => {
-    fetch(`https://api.lyrics.ovh/v1/${artist1.innerHTML}/${title1.innerHTML}`)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          lyric.innerHTML = "Ooops!Song lyrics is not available at this time";
-        }
-      })
-      .then((d) => {
-        lyric.innerHTML = d.lyrics;
-     
-      });
-  });
-  get_lyrics_data2.addEventListener("click", () => {
-    fetch(`https://api.lyrics.ovh/v1/${artist2.innerHTML}/${title2.innerHTML}`)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          lyric.innerHTML = "Ooops!Song lyrics is not available at this time";
-        }
-      })
-      .then((d) => {
-        lyric.innerHTML = d.lyrics;
-      
-      });
-  });
-  get_lyrics_data3.addEventListener("click", () => {
-    fetch(`https://api.lyrics.ovh/v1/${artist3.innerHTML}/${title3.innerHTML}`)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          lyric.innerHTML = "Ooops!Song lyrics is not available at this time";
-        }
-      })
-      .then((d) => {
-        lyric.innerHTML = d.lyrics;
-     
-      });
-  });
-  get_lyrics_data4.addEventListener("click", () => {
-    fetch(`https://api.lyrics.ovh/v1/${artist4.innerHTML}/${title1.innerHTML}`)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          lyric.innerHTML = "Ooops!Song lyrics is not available at this time";
-        }
-      })
-      .then((d) => {
-        lyric.innerHTML = d.lyrics;
-      
-      });
-  });
-  get_lyrics_data5.addEventListener("click", () => {
-    fetch(`https://api.lyrics.ovh/v1/${artist5.innerHTML}/${title1.innerHTML}`)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          lyric.innerHTML = "Ooops!Song lyrics is not available at this time";
-        }
-      })
-      .then((d) => {
-        lyric.innerHTML = d.lyrics;
-     
-      });
-  });
-  get_lyrics_data6.addEventListener("click", () => {
-    fetch(`https://api.lyrics.ovh/v1/${artist6.innerHTML}/${title1.innerHTML}`)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          lyric.innerHTML = "Ooops!Song lyrics is not available at this time"
-        }
-      })
-      .then((d) => {
-        lyric.innerHTML = d.lyrics;
-        
-      });
-  });
-  get_lyrics_data7.addEventListener("click", () => {
-    fetch(`https://api.lyrics.ovh/v1/${artist7.innerHTML}/${title1.innerHTML}`)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          lyric.innerHTML = "Ooops!Song lyrics is not available at this time";
-        }
-      })
-      .then((d) => {
-        lyric.innerHTML = d.lyrics;
-     
-      });
-  });
-  get_lyrics_data8.addEventListener("click", () => {
-    fetch(`https://api.lyrics.ovh/v1/${artist8.innerHTML}/${title1.innerHTML}`)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          lyric.innerHTML = "Ooops!Song lyrics is not available at this time";
-        }
-      })
-      .then((d) => {
-        lyric.innerHTML = d.lyrics;
-        
-      });
-  });
-  get_lyrics_data9.addEventListener("click", () => {
-    fetch(`https://api.lyrics.ovh/v1/${artist9.innerHTML}/${title1.innerHTML}`)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          lyric.innerHTML = "Ooops!Song lyrics is not available at this time";
-        }
-      })
-      .then((d) => {
-        lyric.innerHTML = d.lyrics;
-       
-      });
-  });
-  get_lyrics_data10.addEventListener("click", () => {
-    fetch(`https://api.lyrics.ovh/v1/${artist10.innerHTML}/${title1.innerHTML}`)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          lyric.innerHTML = "Ooops!Song lyrics is not available at this time";
-        }
-      })
-      .then((d) => {
-        lyric.innerHTML = d.lyrics;
-    
-      });
-  });
+  fetch(`https://api.lyrics.ovh/v1/${artist1.innerHTML}/${title1.innerHTML}`)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        lyric.innerHTML = "Ooops!Song lyrics is not available at this time";
+      }
+    })
+    .then((d) => {
+      lyric.innerHTML = d.lyrics;
+    });
+});
+get_lyrics_data2.addEventListener("click", () => {
+  fetch(`https://api.lyrics.ovh/v1/${artist2.innerHTML}/${title2.innerHTML}`)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        lyric.innerHTML = "Ooops!Song lyrics is not available at this time";
+      }
+    })
+    .then((d) => {
+      lyric.innerHTML = d.lyrics;
+    });
+});
+get_lyrics_data3.addEventListener("click", () => {
+  fetch(`https://api.lyrics.ovh/v1/${artist3.innerHTML}/${title3.innerHTML}`)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        lyric.innerHTML = "Ooops!Song lyrics is not available at this time";
+      }
+    })
+    .then((d) => {
+      lyric.innerHTML = d.lyrics;
+    });
+});
+get_lyrics_data4.addEventListener("click", () => {
+  fetch(`https://api.lyrics.ovh/v1/${artist4.innerHTML}/${title1.innerHTML}`)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        lyric.innerHTML = "Ooops!Song lyrics is not available at this time";
+      }
+    })
+    .then((d) => {
+      lyric.innerHTML = d.lyrics;
+    });
+});
+get_lyrics_data5.addEventListener("click", () => {
+  fetch(`https://api.lyrics.ovh/v1/${artist5.innerHTML}/${title1.innerHTML}`)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        lyric.innerHTML = "Ooops!Song lyrics is not available at this time";
+      }
+    })
+    .then((d) => {
+      lyric.innerHTML = d.lyrics;
+    });
+});
+get_lyrics_data6.addEventListener("click", () => {
+  fetch(`https://api.lyrics.ovh/v1/${artist6.innerHTML}/${title1.innerHTML}`)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        lyric.innerHTML = "Ooops!Song lyrics is not available at this time";
+      }
+    })
+    .then((d) => {
+      lyric.innerHTML = d.lyrics;
+    });
+});
+get_lyrics_data7.addEventListener("click", () => {
+  fetch(`https://api.lyrics.ovh/v1/${artist7.innerHTML}/${title1.innerHTML}`)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        lyric.innerHTML = "Ooops!Song lyrics is not available at this time";
+      }
+    })
+    .then((d) => {
+      lyric.innerHTML = d.lyrics;
+    });
+});
+get_lyrics_data8.addEventListener("click", () => {
+  fetch(`https://api.lyrics.ovh/v1/${artist8.innerHTML}/${title1.innerHTML}`)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        lyric.innerHTML = "Ooops!Song lyrics is not available at this time";
+      }
+    })
+    .then((d) => {
+      lyric.innerHTML = d.lyrics;
+    });
+});
+get_lyrics_data9.addEventListener("click", () => {
+  fetch(`https://api.lyrics.ovh/v1/${artist9.innerHTML}/${title1.innerHTML}`)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        lyric.innerHTML = "Ooops!Song lyrics is not available at this time";
+      }
+    })
+    .then((d) => {
+      lyric.innerHTML = d.lyrics;
+    });
+});
+get_lyrics_data10.addEventListener("click", () => {
+  fetch(`https://api.lyrics.ovh/v1/${artist10.innerHTML}/${title1.innerHTML}`)
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        lyric.innerHTML = "Ooops!Song lyrics is not available at this time";
+      }
+    })
+    .then((d) => {
+      lyric.innerHTML = d.lyrics;
+    });
+});
